@@ -1,0 +1,540 @@
+@use "./base.scss";
+
+// put your custom CSS here!
+/* В файл custom.scss или через встроенный стиль */
+.tag-link[href*="explorerexclude"] {
+  display: none !important;
+}
+
+/* Или скрыть весь li с таким тегом */
+.tags li:has(a[href*="explorerexclude"]) {
+  display: none !important;
+}
+
+//credits: eledah (https://github.com/eledah)
+
+// Mermaid fix: https://ifard.ir/quartz-configuration#%D8%AF%DB%8C%D8%A7%DA%AF%D8%B1%D8%A7%D9%85
+
+.mermaid {
+	direction: rtl !important;
+    text-align: center;
+}
+
+pre:has(>code.mermaid) {
+	background-color: transparent;
+}
+
+// title logo
+	
+    .title-logo {
+        flex-direction: row;
+        align-items: center;
+        img {
+            width: 85px;
+        }
+    }
+    #header-text {
+        overflow-wrap: unset;
+    }
+	
+
+	.icon-header {
+    margin: 0;
+    transition: transform 0.2s ease;
+    &:hover {
+        transform: scale(1.05);
+    }
+	}
+
+
+.invisible {
+  color: transparent !important;
+
+  &::selection {
+    color: var(--dark) !important;
+    background: transparent !important;
+  }
+
+  // Для всех ссылок внутри
+  a {
+    color: transparent !important;
+    background: transparent !important;
+    text-decoration: none !important;
+    // pointer-events и cursor не переопределяем – оставляем стандартное поведение
+  }
+
+  // Для состояний ссылок (посещённая, при наведении, активная)
+  a:visited,
+  a:hover,
+  a:active {
+    color: transparent !important;
+  }
+}
+
+/*----infobox callout----*/
+.callout[data-callout="infobox"] {
+    background-color: transparent;
+    --callout-icon: none;
+    border: 1px solid var(--lightgray);
+    float: right;
+    width: 300px;
+    margin: 0px 0px 10px 10px;
+    padding: 5px;
+  }
+
+
+/* stack infoboxes vertically with 'clear' */
+.callout[data-callout="infobox"] {
+  clear: right;
+}
+
+/* Remove Callout Title */
+.callout[data-callout="infobox"] .callout-title {
+  display: none;
+}
+
+
+/* H2 Title */
+.callout[data-callout="infobox"] h2 {
+  margin: auto;
+  max-width: 100%;
+  font-size: 17px;
+  text-align: center;
+  border-radius: 2px;
+  background-color: var(--lightgray);
+  padding: 4px;
+}
+
+/* H3 Title */
+.callout[data-callout="infobox"] h3 {
+  margin: auto;
+  max-width: 100%;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 2px;
+  background-color: var(--lightgray);
+  padding: 4px;
+}
+
+/* hide anchor in infobox headings so they remain centered */
+.callout[data-callout="infobox"] h2 a[role="anchor"], .callout[data-callout="infobox"] h3 a[role="anchor"] {
+  display: none;
+}
+
+/* Spacing */
+.callout[data-callout="infobox"] p {
+  margin-block-start: 10px;
+  margin-block-end: 0px;
+  width: 100%;
+}
+
+/* Image */
+.callout[data-callout="infobox"] img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+/* Table */
+.callout[data-callout="infobox"] table {
+  margin: auto;
+  width: 100%;
+  font-size: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.callout[data-callout="infobox"] th {
+  padding-left: 12px; 
+  padding-right: 0px;
+  vertical-align: top;
+}
+
+.callout[data-callout="infobox"] td {
+  padding-left: 12px; 
+  padding-right: 0px;
+  vertical-align: top;
+  line-height: 1.6rem;
+}
+
+@media (max-width: 768px) {
+  .callout[data-callout="infobox"] {
+    float: none;
+    width: 100%;
+    margin: 10px 0;
+    /* При необходимости можно добавить padding для отступов от краёв */
+    box-sizing: border-box;
+  }
+}
+
+/*Grid-container from https://www.gatekeeper.wiki */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color: #2a2a2a;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+.grid-item:hover {
+  background-color: #333333;
+}
+
+.grid-item .icon {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.grid-item .icon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.grid-item .title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.grid-item .description {
+  font-size: 1em;
+}
+
+/* Index Page Boxes */
+
+.grid-item.type-1 {
+  background-color: #2b2b2b;
+}
+
+.grid-item.type-2 {
+  background-color: #2c2c2c;
+}
+
+.grid-item.type-3 {
+  background-color: #2d2d2d;
+}
+
+.grid-item.type-4 {
+  background-color: #2e2e2e;
+}
+
+.grid-item.type-5 {
+  background-color: #2f2f2f;
+}
+
+.grid-item.type-6 {
+  background-color: #303030;
+}
+
+.grid-item {
+  padding: 15px !important;
+}
+
+.grid-item .icon img {
+  margin: 5px;
+}
+
+
+/* Обновлённый класс hidden-text */
+.hidden-text {
+  background: transparent;
+  color: transparent !important;
+  padding: 0.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre;               /* сохраняет форматирование ASCII */
+  width: 100%;                    /* занимает всю ширину родителя */
+  max-width: 100%;
+  line-height: 1.5;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: visible;               /* убирает внутренний скролл */
+  -webkit-text-size-adjust: none;
+
+  /* Размер шрифта подбирается так, чтобы самая длинная строка помещалась без скролла.
+     Значение 1.6vw подобрано для рисунка с длиной строки ~90 символов.
+     При необходимости скорректируйте его. */
+  font-size: clamp(0.6rem, 1.6vw, 1.2rem);
+}
+
+.hidden-text::selection {
+  color: #ad3232 !important;
+  background: transparent;
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+  .hidden-text {
+    padding: 0.2rem;
+    /* На узких экранах можно чуть увеличить vw, чтобы текст оставался читаемым,
+       но следите, чтобы строка не вылезала. */
+    font-size: clamp(0.7rem, 2.2vw, 1.1rem);
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow: visible;
+  }
+}
+
+
+/*
+// Базовые стили для всех внутренних ссылок с иконками
+.internal::before {
+  content: "";
+  display: inline-block;
+  width: 1em;           
+  height: 1em;
+  margin-right: 0.3em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle !important; 
+  transform: translateY(-0.05em); 
+}
+.internal[href*="/Бездна"]::before {
+    background-image: url('./static/icons/Бездна.png'); 
+  }
+
+.internal[href*="/Резонанс"]::before {
+    background-image: url('./static/icons/Резонанс.png'); 
+  }
+
+.internal[href*="/Синтериум"]::before {
+    background-image: url('./static/icons/Синтериум.png'); 
+  }
+  
+.internal[href*="/Эфир"]::before {
+    background-image: url('./static/icons/Эфир.png'); 
+  }
+*/
+  
+  .interactive-story {
+  margin: 2rem 0;
+  position: relative;
+}
+.story-text {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--light);
+  border-radius: 8px;
+}
+.story-choices {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.story-choices button {
+  background: var(--secondary);
+  color: var(--light);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.story-choices button:hover {
+  background: var(--tertiary);
+}
+[data-step] {
+  display: none;
+}
+
+.backward {
+  display: inline-block;
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+/* Основные стили лабиринта */
+.labyrinth {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  max-width: 100%;
+  border: 1px solid var(--lightgray);
+}
+
+.labyrinth-container {
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid var(--lightgray);
+  background: rgba(0,0,0,0.02);
+  margin: 0;
+  padding: 0;
+  /* Размеры по умолчанию – могут быть переопределены */
+}
+
+/* Базовые размеры для контейнеров разных ориентаций */
+.labyrinth-container-left,
+.labyrinth-container-right {
+  width: 180px;
+  min-width: 40px;
+  max-width: 300px;
+}
+
+.labyrinth-container-top,
+.labyrinth-container-bottom {
+  height: 180px;
+  min-height: 40px;
+  max-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Утилитарные классы для точных размеров (ширина) */
+.w-40 { width: 40px; }
+.w-80 { width: 80px; }
+.w-120 { width: 120px; }
+.w-180 { width: 180px; }
+.w-240 { width: 240px; }
+/* Высота */
+.h-40 { height: 40px; }
+.h-80 { height: 80px; }
+.h-120 { height: 120px; }
+.h-180 { height: 180px; }
+
+/* Содержимое – вертикальный текст */
+.ver-rl {
+  display: block;
+  writing-mode: vertical-rl;
+  text-align: justify;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+}
+
+.ver-lr {
+  display: block;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: justify;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+}
+// ============================================
+// 2. ЗАГОЛОВКИ (применяем цвета из темы)
+// ============================================
+h1, h2, h3, h4, h5, h6 {
+  color: var(--dark); // в светлой теме тёмно-синий, в тёмной – золотистый
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+// Дополнительно для заголовков внутри статей
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+  color: var(--dark);
+}
+
+// ============================================
+// 3. УЛУЧШЕНИЕ КОНТРАСТА В СВЕТЛОЙ ТЕМЕ
+// ============================================
+.light-mode {
+  // Можно задать более приглушённый фон для карточек, если нужно
+  .recent-notes .recent-li {
+    background: rgba(245, 239, 232, 0.6);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(200, 180, 170, 0.2);
+  }
+}
+
+// ============================================
+// 4. АНИМАЦИИ (опционально, но приятно)
+// ============================================
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-content {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+// ============================================
+// 5. ССЫЛКИ (уже есть, но подправим под новую палитру)
+// ============================================
+a {
+  color: var(--secondary);
+  transition: color 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    color: var(--tertiary);
+    border-bottom-color: var(--tertiary);
+  }
+}
+
+// ============================================
+// 6. ДОПОЛНИТЕЛЬНЫЕ МЕЛОЧИ
+// ============================================
+// Блоки кода – под цветовую схему
+pre {
+  background-color: var(--lightgray);
+  border-left: 3px solid var(--secondary);
+}
+
+// Кавычки (blockquote) – новый акцент
+blockquote {
+  border-left-color: var(--secondary);
+  color: var(--darkgray);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.8rem 1.2rem;
+  border-radius: 0 8px 8px 0;
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  body {
+    background: var(--light); // на мобильных убираем градиент для производительности
+  }
+}
+
+// В custom.scss
+a:hover {
+  color: var(--accent2);
+  border-bottom-color: var(--accent2);
+}
+
+button, .btn {
+  background: var(--secondary);
+  color: var(--light);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+  &:hover {
+    background: var(--accent2);
+  }
+}

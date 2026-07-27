@@ -1,0 +1,88 @@
+.recent-notes {
+  // Заголовок блока – приводим к единому стилю заголовков h3
+  & > h3 {
+    margin: 0.3rem 0 0 0;
+    font-size: 1.41rem;          // как в base.scss для h3
+    font-family: var(--headerFont);
+    color: var(--dark);
+    font-weight: revert;
+  }
+
+  & > ul.recent-ul {
+    list-style: none;
+    margin-top: 1rem;
+    padding-left: 0;
+
+    & > li {
+      margin: 1rem 0;
+
+      .section {
+        // Ссылка на заголовок заметки
+        .desc > h3 > a {
+          background-color: transparent;
+          font-family: var(--headerFont);
+          font-size: 1.1rem;       // чуть крупнее, чтобы выделялось
+          color: var(--secondary);
+          text-decoration: none;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: var(--tertiary);
+          }
+        }
+
+        // Мета-информация (дата)
+        .meta {
+          margin: 0.1rem 0 0.3rem 0;
+          font-size: 0.9rem;
+          color: var(--gray);
+          opacity: 0.8;           // чуть ярче, чем было
+        }
+
+        // Теги (если включены)
+        .tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.3rem;
+          margin: 0.3rem 0 0 0;
+          padding: 0;
+          list-style: none;
+
+          li {
+            margin: 0;
+
+            .tag-link {
+              font-size: 0.8rem;
+              background-color: var(--highlight);
+              padding: 0.1rem 0.4rem;
+              border-radius: 4px;
+              color: var(--secondary);
+              text-decoration: none;
+
+              &:hover {
+                background-color: var(--secondary);
+                color: var(--light);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Ссылка "Показать ещё"
+  & > p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+
+    a {
+      color: var(--secondary);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--tertiary);
+        text-decoration: underline;
+      }
+    }
+  }
+}
