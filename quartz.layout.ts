@@ -9,6 +9,7 @@ export const sharedPageComponents: SharedLayout = {
   ],
   afterBody: [
    Component.SpiralText(),
+   Component.GoogleTranslate(),
    Component.RevealText(),
    Component.ShakyText(),
    Component.ConditionalMessage(),

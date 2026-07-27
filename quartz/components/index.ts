@@ -30,6 +30,7 @@ import ConditionalMessage from "./ConditionalMessage"
 import InteractiveStory from "./InteractiveStory"
 import DailyLimit from "./DailyLimit"
 import ReflectionText from "./ReflectionText"
+import GoogleTranslate from "./GoogleTranslate"
 
 
 export {
@@ -64,7 +65,8 @@ export {
   ConditionalMessage,
   InteractiveStory,
   DailyLimit,
-  ReflectionText
+  ReflectionText,
+  GoogleTranslate
 }
 
 export { default as SpiralText } from "./SpiralText"
