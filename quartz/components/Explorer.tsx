@@ -48,32 +48,10 @@ const defaultOptions: Options = {
     }
   },
   filterFn: (node) => {
-    // Исключаем страницу тега "explorerexclude"
-    if (JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "explorerexclude", "глоссарий"])) {
+    // Исключаем файлы с полем lang: ru
+    if (node.file && node.file.frontmatter?.lang === 'ru') {
       return false
     }
-    
-    // Исключаем файлы с тегом "explorerexclude"
-    if (node.file && node.file.frontmatter?.tags) {
-      const tags = node.file.frontmatter.tags
-      // Проверяем, содержит ли файл тег "explorerexclude"
-      if (Array.isArray(tags) && tags.includes("explorerexclude", "глоссарий")) {
-        return false
-      }
-      // Также проверяем все префиксы тегов
-      const tagPrefixes = tags.flatMap(tag => {
-        const segments = tag.split("/")
-        const prefixes = []
-        for (let i = 1; i <= segments.length; i++) {
-          prefixes.push(segments.slice(0, i).join("/"))
-        }
-        return prefixes
-      })
-      if (tagPrefixes.includes("explorerexclude", "глоссарий")) {
-        return false
-      }
-    }
-    
     return true
   },
   order: ["filter", "map", "sort"],

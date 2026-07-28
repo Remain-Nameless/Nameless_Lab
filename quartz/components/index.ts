@@ -31,6 +31,7 @@ import InteractiveStory from "./InteractiveStory"
 import DailyLimit from "./DailyLimit"
 import ReflectionText from "./ReflectionText"
 import GoogleTranslate from "./GoogleTranslate"
+import LanguageSwitcher from "./LanguageSwitcher"
 
 
 export {
@@ -66,7 +67,8 @@ export {
   InteractiveStory,
   DailyLimit,
   ReflectionText,
-  GoogleTranslate
+  GoogleTranslate,
+  LanguageSwitcher
 }
 
 export { default as SpiralText } from "./SpiralText"

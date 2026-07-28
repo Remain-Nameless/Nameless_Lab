@@ -9,7 +9,6 @@ export const sharedPageComponents: SharedLayout = {
   ],
   afterBody: [
    Component.SpiralText(),
-   Component.GoogleTranslate(),
    Component.RevealText(),
    Component.ShakyText(),
    Component.ConditionalMessage(),
@@ -34,6 +33,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
+	Component.LanguageSwitcher(), 
   ],
   left: [
     Component.DesktopOnly(Component.PageTitle()),
